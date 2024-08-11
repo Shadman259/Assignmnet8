@@ -1,5 +1,5 @@
 
-# import unittest
+import unittest
 
 
 
@@ -322,7 +322,7 @@ class Admin(User):
                     cursor.execute("DELETE FROM ADMIN WHERE ID = ?",(u_id,))
             else:
                 print("ADMIN ID Does Not Exist")
-            conn.commit()
+        conn.commit()
     def link_unlink(self):
         i_id = self.get_integer("Enter Instructor ID: ","ID Must be an Integer")
         cursor.execute("SELECT * FROM INSTRUCTOR WHERE ID = ?",(i_id,))
@@ -507,76 +507,76 @@ elif user_type == 3:
     
 print ("Logging Off\n\n")
 
-# class Test_test_2(unittest.TestCase):
-#     def test_login(self):
-#         #Student Logs IN
-#         s_log = login("Tucker","Moncey","10011")
-#         self.assertEqual(1,s_log,"Login Error for Student")
-#         #Student has wrong ID
-#         s_log_f = login("Tucker","Moncey","10010")
-#         self.assertEqual(0,s_log_f,"Login Error for inncorrect ID")
-#         #Instructor logs IN
-#         i_log = login("Alan","Turing","20004")
-#         self.assertEqual(2,i_log,"Login Error for Instructor")
-#         #Instructor enters lowercase name
-#         i_log_l = login("alan","Turing","20004")
-#         self.assertEqual(2,i_log_l,"Login Error for Instructor (Lowercase)")
-#         #Instructor enters name wrong
-#         i_log_f = login("Alan","Turin","20004")
-#         self.assertEqual(0,i_log_f,"Wrong Name Works for Instructor (Error)")
-#         #Admin Logs IN
-#         a_log = login("Vera","Rubin","30002")
-#         self.assertEqual(3,a_log,"Login Error for Admin")
-#         #Admin enters ID of another Admin
-#         a_log_f = login("Vera","Rubin","30001")
-#         self.assertEqual(0,a_log_f,"Login Error for Admin (ID)")
-#         #Admin enters all lowercase
-#         a_log_l = login("vera","rubin","30002")
-#         self.assertEqual(3,a_log_l,"Login Error for Admin (Lowercase)")
-#     def test_search_all(self):
-#         #Search All
-#         User1 = Student("Tucker","Moncey","10011")
-#         course_search = User1.Search()
-#         self.assertTrue(course_search,"Search All Courses Error")
-#     def test_search_paramters(self):
-#         User1 = Student("Tucker","Moncey","10011")
-#         #Correct CRN
-#         search_CRN = User1.search_CRN("1002")
-#         self.assertTrue(search_CRN,"Error for correct CRN")
-#         #Incorrect CRN
-#         search = User1.search_CRN("siuhfuh")
-#         self.assertFalse(search,"Error for incorrect CRN")
-#         #Valid title (Random caps)
-#         search= User1.search_Title("miCrocOntrolLers")
-#         self.assertTrue(search,"Error for correct title (random caps)")
-#         #Invalid title
-#         search = User1.search_Title("regrhoegihkgb")
-#         self.assertFalse(search,"Error for invalid title")
-#         #Valid DEPT (Random Caps)
-#         search = User1.search_DEPT("bScO")
-#         self.assertTrue(search,"Error for valid DEPT")
-#         #Invalid DEPT
-#         search = User1.search_DEPT("ioiGeg")
-#         self.assertFalse(search,"Error for invalid DEPT")
-#         #Valid Time
-#         search = User1.search_Time("8:00aM")
-#         self.assertTrue(search,"Error for valid time")
-#         #Invalid Time
-#         search = User1.search_Time("hghrii")
-#         self.assertFalse(search,"Error for invalid time")
-#         #Valid Weekday
-#         search = User1.search_Weekday("t/TR")
-#         self.assertTrue(search,"Error for valid weekday")
-#         #Invalid Weekday
-#         search = User1.search_Weekday("gjij5")
-#         self.assertFalse(search,"Error for invalid weekday")
-#         #Valid Credit
-#         search = User1.search_Credits(4)
-#         self.assertTrue(search, "Error for valid credits")
-#         #Invalid Credits
-#         search = User1.search_Credits(45)
-#         self.assertFalse(search,"Error for bad credits")
-# if __name__ == '__main__':
-#     unittest.main()
+class Test_test_2(unittest.TestCase):
+    def test_login(self):
+        #Student Logs IN
+        s_log = login("Tucker","Moncey","10011")
+        self.assertEqual(1,s_log,"Login Error for Student")
+        #Student has wrong ID
+        s_log_f = login("Tucker","Moncey","10010")
+        self.assertEqual(0,s_log_f,"Login Error for inncorrect ID")
+        #Instructor logs IN
+        i_log = login("Alan","Turing","20004")
+        self.assertEqual(2,i_log,"Login Error for Instructor")
+        #Instructor enters lowercase name
+        i_log_l = login("alan","Turing","20004")
+        self.assertEqual(2,i_log_l,"Login Error for Instructor (Lowercase)")
+        #Instructor enters name wrong
+        i_log_f = login("Alan","Turin","20004")
+        self.assertEqual(0,i_log_f,"Wrong Name Works for Instructor (Error)")
+        #Admin Logs IN
+        a_log = login("Vera","Rubin","30002")
+        self.assertEqual(3,a_log,"Login Error for Admin")
+        #Admin enters ID of another Admin
+        a_log_f = login("Vera","Rubin","30001")
+        self.assertEqual(0,a_log_f,"Login Error for Admin (ID)")
+        #Admin enters all lowercase
+        a_log_l = login("vera","rubin","30002")
+        self.assertEqual(3,a_log_l,"Login Error for Admin (Lowercase)")
+    def test_search_all(self):
+        #Search All
+        User1 = Student("Tucker","Moncey","10011")
+        course_search = User1.Search()
+        self.assertTrue(course_search,"Search All Courses Error")
+    def test_search_paramters(self):
+        User1 = Student("Tucker","Moncey","10011")
+        #Correct CRN
+        search_CRN = User1.search_CRN("1002")
+        self.assertTrue(search_CRN,"Error for correct CRN")
+        #Incorrect CRN
+        search = User1.search_CRN("siuhfuh")
+        self.assertFalse(search,"Error for incorrect CRN")
+        #Valid title (Random caps)
+        search= User1.search_Title("miCrocOntrolLers")
+        self.assertTrue(search,"Error for correct title (random caps)")
+        #Invalid title
+        search = User1.search_Title("regrhoegihkgb")
+        self.assertFalse(search,"Error for invalid title")
+        #Valid DEPT (Random Caps)
+        search = User1.search_DEPT("bScO")
+        self.assertTrue(search,"Error for valid DEPT")
+        #Invalid DEPT
+        search = User1.search_DEPT("ioiGeg")
+        self.assertFalse(search,"Error for invalid DEPT")
+        #Valid Time
+        search = User1.search_Time("8:00aM")
+        self.assertTrue(search,"Error for valid time")
+        #Invalid Time
+        search = User1.search_Time("hghrii")
+        self.assertFalse(search,"Error for invalid time")
+        #Valid Weekday
+        search = User1.search_Weekday("t/TR")
+        self.assertTrue(search,"Error for valid weekday")
+        #Invalid Weekday
+        search = User1.search_Weekday("gjij5")
+        self.assertFalse(search,"Error for invalid weekday")
+        #Valid Credit
+        search = User1.search_Credits(4)
+        self.assertTrue(search, "Error for valid credits")
+        #Invalid Credits
+        search = User1.search_Credits(45)
+        self.assertFalse(search,"Error for bad credits")
+if __name__ == '__main__':
+    unittest.main()
 
 conn.close()
